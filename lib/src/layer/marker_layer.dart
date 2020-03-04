@@ -73,7 +73,7 @@ enum AnchorAlign {
 
 class Marker {
   final LatLng point;
-  final WidgetBuilder builder;
+  final Widget Function(BuildContext context, MapState map) builder;
   final double width;
   final double height;
   final Anchor anchor;
@@ -131,7 +131,7 @@ class MarkerLayer extends StatelessWidget {
               height: markerOpt.height,
               left: pixelPosX,
               top: pixelPosY,
-              child: markerOpt.builder(context),
+              child: markerOpt.builder(context, map),
             ),
           );
         }
